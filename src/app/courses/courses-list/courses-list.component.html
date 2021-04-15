@@ -1,1 +1,4 @@
-<p>courses-list works!</p>
+<h4>Courses List</h4>
+<ul class="list-group">
+    <app-course-item *ngFor ="let singleCourse of courses" [course]="singleCourse"></app-course-item>
+</ul>

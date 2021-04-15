@@ -11,6 +11,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -30,6 +31,7 @@ import { AboutComponent } from './about/about.component';
     BrowserModule,
     FormsModule,
     AppRoutingModule,
+    HttpClientModule
     
   ],
   providers: [],

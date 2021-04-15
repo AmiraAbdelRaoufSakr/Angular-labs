@@ -7,6 +7,7 @@ import { CoursesListComponent } from './courses-list/courses-list.component';
 import { CourseDetailsComponent } from './course-details/course-details.component';
 import { CourseFormComponent } from './course-form/course-form.component';
 import { FormsModule } from '@angular/forms';
+import { CourseItemComponent } from './course-item/course-item.component';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { FormsModule } from '@angular/forms';
     CoursesComponent,
     CoursesListComponent,
     CourseDetailsComponent,
-    CourseFormComponent
+    CourseFormComponent,
+    CourseItemComponent
   ],
   imports: [
     CommonModule,

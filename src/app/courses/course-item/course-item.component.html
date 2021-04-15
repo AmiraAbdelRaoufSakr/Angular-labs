@@ -1,0 +1,8 @@
+<li
+[routerLink] ="[course.id]"
+ class="list-group-item"
+[ngClass]="{'list-group-item-danger': !course.isFree,
+'list-group-item-success':course.isFree}"
+>
+    {{ course?.title }}
+</li>

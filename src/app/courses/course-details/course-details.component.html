@@ -1,1 +1,13 @@
-<p>course-details works!</p>
+<div *ngIf="course; else loadingTemplate">
+    <div class="row">
+        <p>ID: # {{course.id }}</p>
+    </div>
+    <div class="row">
+        <p>Title:  {{course.title }}</p>
+    </div>
+    <div class="row">
+        <p>Instructor:  {{course.instructor }}</p>
+    </div>
+</div>
+
+<ng-template #loadingTemplate>Loading...</ng-template>
