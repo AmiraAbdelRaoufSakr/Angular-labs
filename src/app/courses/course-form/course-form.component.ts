@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
-
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { CoursesService } from 'src/app/courses.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-course-form',
@@ -8,16 +9,33 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./course-form.component.scss']
 })
 export class CourseFormComponent implements OnInit {
-
-  constructor() { }
+  errors = [];
+  courseForm: FormGroup = this._fb.group({
+    title: ['',Validators.required],
+    instructor: ['',Validators.required],
+    isFree: [false]
+  });
+  constructor(
+    private _fb: FormBuilder,
+    private _coursesService: CoursesService,
+    private _router: Router
+  ) { }
 
   ngOnInit(): void {
   }
   
-  onSubmit(form: NgForm) {
+  onSubmit(form: FormGroup) {
     if(form.valid) {
       const course = form.value;
-      console.log(course);
+      this._coursesService.addCourse(course).subscribe(
+        (res: any) => {
+          this._router.navigate(['courses', res.data.id]);
+        },
+        (err: any) => {
+          this.errors = err.error.error || [];
+          
+        }
+      )
     }
   }
 
